@@ -1,0 +1,6 @@
+require('settings')
+require('mappings')
+require('packer-config')
+require('colorschemes-config')
+require('nvim-tree-config')
+require('lsp-config.language-servers')
