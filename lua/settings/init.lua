@@ -1,5 +1,9 @@
 local set = vim.opt
 
+vim.notify = require("notify")
+
+
+
 set.expandtab = true
 set.smarttab = true
 set.shiftwidth = 2
@@ -17,8 +21,8 @@ set.scrolloff = 5
 set.fileencoding = 'utf-8'
 set.termguicolors = true
 
-set.relativenumber = false
 set.cursorline = true
 
 set.hidden = true
 set.number = true
+set.completeopt = 'menuone,noselect'
