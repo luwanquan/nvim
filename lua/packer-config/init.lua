@@ -9,11 +9,11 @@ return require("packer").startup(function()
 	use("rcarriga/nvim-notify") -- 提示窗
 	use("romgrk/barbar.nvim") -- 状态栏
 	use("nvim-lualine/lualine.nvim") -- Tabs标签栏
-  use("lewis6991/gitsigns.nvim", {
-    opt = true,
-    event = {"bufRead", "BufNewFile"},
-    requires = {"nvim-lua/plenary.nvim", opt = true}
-  })
+	use("lewis6991/gitsigns.nvim", {
+		opt = true,
+		event = { "bufRead", "BufNewFile" },
+		requires = { "nvim-lua/plenary.nvim", opt = true },
+	})
 	-- use("sunjon/shade.nvim") --> dim inactive windows
 
 	-- 代码解析树以及相关插件 treesitter plugins
@@ -36,8 +36,8 @@ return require("packer").startup(function()
 	use("nvim-telescope/telescope-fzf-native.nvim")
 	use("nvim-lua/plenary.nvim")
 	use("nvim-telescope/telescope.nvim", {
-    requires = { "nvim-lua/plenary.nvim", opt = true }
-  })
+		requires = { "nvim-lua/plenary.nvim", opt = true },
+	})
 
 	-- LSP 语言服务器
 	use("neovim/nvim-lspconfig") -- Colection of configurations for the built-in LSP client
