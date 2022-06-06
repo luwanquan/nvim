@@ -47,7 +47,7 @@ map("n", "<leader>bw", ":BufferOrderByWindowNumber<CR>", opts)
 
 -- Telescope mappings
 map("n", "<leader>pp", ":Telescope<CR><Esc>", opts)
-map("n", "<leader>F", ":Telescope find_files<CR>", opts)
+map("n", "<leader>f", ":Telescope find_files<CR>", opts)
 map("n", "<leader>G", ":Telescope live_grep<CR>", opts)
 map("n", "<leader>gs", ":Telescope git_status<CR><Esc>", opts)
 map("n", "<leader>gc", ":Telescope git_commits<CR><Esc>", opts)

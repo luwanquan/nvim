@@ -30,8 +30,15 @@ local on_attach = function(client, bufnr)
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "<space>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "<space>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-	vim.api.nvim_buf_set_keymap(bufnr, "n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
-	vim.cmd([[ command! Format execute 'lua vim.lsp.buf.formatting()' ]])
+	vim.api.nvim_buf_set_keymap(
+		bufnr,
+		"n",
+		"<space>F",
+		"<cmd>lua vim.lsp.buf.formatting_sync(nil, 10000)<CR>:w<CR>",
+		opts
+	)
+	vim.cmd([[ command! Format execute 'lua vim.lsp.buf.formatting_sync(nil, 10000)' ]])
+	vim.cmd([[ command! Save execute 'w' ]])
 end
 
 local servers = {
@@ -70,7 +77,7 @@ lsp_installer.on_server_ready(function(server)
 		default_opts.settings = {
 			Lua = {
 				diagnostics = {
-					globals = { "vim" },
+					globals = { "vim", "use" },
 				},
 			},
 		}
@@ -78,3 +85,12 @@ lsp_installer.on_server_ready(function(server)
 
 	server:setup(default_opts)
 end)
+
+--[[
+require("lspconfig").volar.setup({
+	on_attach = on_attach,
+	flags = {
+		debounce_text_changes = 150,
+	},
+})
+]]
