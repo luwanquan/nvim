@@ -46,9 +46,9 @@ local servers = {
 	"sumneko_lua",
 	"volar",
 	"html",
+  "remark_ls",
 	"pyright",
 	"eslint",
-	"remark_ls",
 }
 
 ---@diagnostic disable-next-line: undefined-global
