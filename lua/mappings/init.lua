@@ -3,6 +3,9 @@ local opts = { noremap = true, silent = true }
 
 vim.g.mapleader = " "
 
+-- map("n", "j", "<Plug>(accelerated_jk_gj)", opts)
+-- map("n", "k", "<Plug>(accelerated_jk_gk)", opts)
+
 map("n", "<leader>t", ":NvimTreeToggle<CR>", opts)
 
 -- barbar mappings
