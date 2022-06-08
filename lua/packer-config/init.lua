@@ -16,16 +16,20 @@ return require("packer").startup(function()
 	use({
 		"EdenEast/nightfox.nvim",
 		config = function()
+			require("nightfox").setup({
+				options = {
+					transparent = true,
+				},
+			})
 			vim.cmd("colorscheme nordfox")
 		end,
 	}) -- theme 样式皮肤
-	use({ "kyazdani42/nvim-tree.lua", tag = "nightly" }) -- explorer
 	use({
-		"xiyaowong/nvim-transparent",
+		"kyazdani42/nvim-tree.lua",
 		config = function()
-			require("nvim-transparent-config")
+			require("nvim-tree-config")
 		end,
-	})
+	}) -- explorer
 	use("rcarriga/nvim-notify") -- 提示窗
 	use({
 		"romgrk/barbar.nvim",
