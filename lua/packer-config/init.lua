@@ -103,7 +103,15 @@ return require("packer").startup(function()
 	-- 🔭望远镜 telescope plugins
 	use("nvim-telescope/telescope-fzf-native.nvim")
 	use("nvim-lua/plenary.nvim")
-	use({ "nvim-telescope/telescope.nvim", requires = { "nvim-lua/plenary.nvim", opt = true } })
+	use({
+		"nvim-telescope/telescope.nvim",
+		requires = { "nvim-lua/plenary.nvim", opt = true },
+		config = function()
+			require("telescope").setup({
+				defaults = { file_ignore_patterns = { "node_modules" } },
+			})
+		end,
+	})
 
 	-- LSP 语言服务器
 	use("neovim/nvim-lspconfig") -- Colection of configurations for the built-in LSP client
