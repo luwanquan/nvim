@@ -48,7 +48,6 @@ local servers = {
 	"sumneko_lua",
 	"volar",
 	"html",
-	"remark_ls",
 	"pyright",
 	"eslint",
 }

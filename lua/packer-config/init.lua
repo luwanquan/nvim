@@ -3,22 +3,43 @@ return require("packer").startup(function()
 	use("wbthomason/packer.nvim")
 
 	-- 辅助工具
-	-- use({ "rhysd/accelerated-jk", opt = true, event = "BufReadPost" }) -- 加速 j 和 k
+	use({
+		"rainbowhxch/accelerated-jk.nvim",
+		config = function()
+			vim.api.nvim_set_keymap("n", "j", "<Plug>(accelerated_jk_gj)", {})
+			vim.api.nvim_set_keymap("n", "k", "<Plug>(accelerated_jk_gk)", {})
+		end,
+	}) -- 加速 j 和 k
 
 	-- Editor 编辑器样式
 	use("kyazdani42/nvim-web-devicons") -- 文件图标
 	use({
 		"EdenEast/nightfox.nvim",
 		config = function()
-			require("colorschemes-config")
+			vim.cmd("colorscheme nordfox")
 		end,
 	}) -- theme 样式皮肤
 	use({ "kyazdani42/nvim-tree.lua", tag = "nightly" }) -- explorer
+	use({
+		"xiyaowong/nvim-transparent",
+		config = function()
+			require("nvim-transparent-config")
+		end,
+	})
 	use("rcarriga/nvim-notify") -- 提示窗
 	use({
 		"romgrk/barbar.nvim",
 		config = function()
-			require("barbar-config")
+			-- Set barbar's options
+			vim.g.bufferline = {
+				-- Enable/disable animations
+				animation = true,
+				-- Enable/disable close button
+				closable = true,
+				-- Configure icons on the bufferline.
+				icon_separator_active = "",
+				icon_separator_inactive = "",
+			}
 		end,
 	}) -- 状态栏
 	use({
@@ -36,6 +57,13 @@ return require("packer").startup(function()
 			require("gitsigns-config")
 		end,
 	})
+	use({
+		"glepnir/dashboard-nvim",
+		config = function()
+			require("dashboard-config")
+		end,
+	})
+	use({ "iamcco/markdown-preview.nvim", opt = true, ft = "markdown", run = "cd app && yarn install" })
 
 	-- 代码解析树以及相关插件 treesitter plugins
 	use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
