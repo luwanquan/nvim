@@ -1,5 +1,9 @@
 vim.g.dashboard_default_executive = "telescope"
-vim.g.dashboard_custom_section = {}
+vim.g.dashboard_custom_section = {
+	a = { description = { " Find File" }, command = "Telescope find_files" },
+	b = { description = { " Find Text" }, command = "Telescope live_grep" },
+	c = { description = { " New File" }, command = "enew" },
+}
 vim.g.dashboard_custom_header = {
 	[[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀     ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
 	[[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀     ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
