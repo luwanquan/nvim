@@ -46,7 +46,7 @@ end
 local servers = {
 	"tsserver",
 	"sumneko_lua",
-	"volar",
+  "volar",
 	"html",
 	"pyright",
 	"eslint",
