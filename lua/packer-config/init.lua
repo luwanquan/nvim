@@ -85,20 +85,20 @@ return require("packer").startup(function()
     end,
   })
   -- use("mfussenegger/nvim-ts-hint-textobject")
-  use({
-    "windwp/nvim-autopairs",
-    config = function()
-      require("nvim-autopairs-config")
-    end,
-  })
-  use({
-    "windwp/nvim-ts-autotag",
-    opt = true,
-    ft = { "html", "xml" },
-    config = function()
-      require("nvim-ts-autotag-config")
-    end,
-  })
+  -- use({
+  --   "windwp/nvim-autopairs",
+  --   config = function()
+  --     require("nvim-autopairs-config")
+  --   end,
+  -- })
+  -- use({
+  --   "windwp/nvim-ts-autotag",
+  --   opt = true,
+  --   ft = { "html", "xml" },
+  --   config = function()
+  --     require("nvim-ts-autotag-config")
+  --   end,
+  -- })
 
   -- 🔭望远镜 telescope plugins
   use("nvim-telescope/telescope-fzf-native.nvim")
@@ -168,5 +168,4 @@ return require("packer").startup(function()
     end,
     rum = "yarn && yarn build",
   })
-  -- use({ "github/copilot.vim", opt = true, cmd = "Copilot" })
 end)

@@ -73,27 +73,28 @@ require("lualine").setup({
 				sources = { "nvim_diagnostic" },
 				symbols = { error = " ", warn = " ", info = " ", hint = " " },
 			},
-			{
-				-- Lsp server name .
-				function()
-					local msg = "No Active Lsp"
-					local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
-					local clients = vim.lsp.get_active_clients()
-					if next(clients) == nil then
-						return msg
-					end
-					for _, client in ipairs(clients) do
-						local filetypes = client.config.filetypes
-						-- print(client.name, filetypes[0])
-						if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-							return client.name
-						end
-					end
-					return msg
-				end,
-				-- icon = "  LSP:",
-				color = { fg = "#ffffff" },
-			},
+			-- {
+			-- 	-- Lsp server name .
+			-- 	function()
+			-- 		local msg = "No Active Lsp"
+			-- 		local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
+			-- 		local clients = vim.lsp.get_active_clients()
+			-- 		if next(clients) == nil then
+			-- 			return msg
+			-- 		end
+			-- 		for _, client in ipairs(clients) do
+			-- 			local filetypes = client.config.filetypes
+			-- 			-- print(client.name, filetypes[0])
+			-- 			if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
+			-- 				return client.name
+			-- 			end
+			-- 		end
+			-- 		return msg
+			-- 	end,
+			-- 	-- icon = "  LSP:",
+			-- 	color = { fg = "#ffffff" },
+			-- },
+			--
 			-- {
 			-- 	function()
 			-- 		local b = vim.api.nvim_get_current_buf()

@@ -1,5 +1,6 @@
 {
   "sumneko-lua.enableNvimLuaDev": true,
-  "coc.preferences.formatOnSaveFiletypes": ["css", "markdown", "vue", "javascript", "typescript", "json", "lua"],
-  "Lua.diagnostics.globals": ["vim"]
+  "coc.preferences.formatOnSaveFiletypes": ["css", "markdown", "vue", "javascript", "javascriptreact", "typescript", "typescriptreact", "json", "lua"],
+  "Lua.diagnostics.globals": ["vim"],
+  "html.filetypes": ["markdown", "vue", "javascript", "javascriptreact", "typescript", "typescriptreact"]
 }
