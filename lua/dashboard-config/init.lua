@@ -1,10 +1,14 @@
-vim.g.dashboard_default_executive = "telescope"
-vim.g.dashboard_custom_section = {
-	a = { description = { " Find File" }, command = "Telescope find_files" },
-	b = { description = { " Find Text" }, command = "Telescope live_grep" },
-	c = { description = { " New File" }, command = "enew" },
+local db = require("dashboard")
+db.default_executive = "telescope"
+-- vim.g.dashboard_default_executive = "telescope"
+-- vim.g.dashboard_custom_section = {
+db.custom_center = {
+	{ icon = " ", desc = "Find File", action = "Telescope find_files" },
+	{ icon = " ", desc = "Find Text", action = "Telescope live_grep" },
+	{ icon = " ", desc = "New File", action = "DashboardNewFile" },
 }
-vim.g.dashboard_custom_header = {
+-- vim.g.dashboard_custom_header = {
+db.custom_header = {
 	[[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀     ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
 	[[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀     ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
 	[[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀     ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
