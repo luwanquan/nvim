@@ -6,16 +6,17 @@ const { exec } = require('node:child_process');
 objc.import('AppKit')
 const {NSWorkspace} = objc
 
-let latest = false
+let latest = ''
 setInterval(() => {
   const activeApp = NSWorkspace.sharedWorkspace().activeApplication()
   const identifier = objc.js(activeApp).NSApplicationBundleIdentifier
+  const vscodeID = 'com.microsoft.VSCode'
 
-  if (!latest && identifier === 'com.microsoft.VSCode') {
-    latest = true
+  if (latest !== vscodeID && identifier === vscodeID) {
+    console.log(vscodeID + ' is activated')
+    latest = identifier
     exec('/usr/local/bin/im-select com.apple.keylayout.ABC')
-    console.log(identifier + ' is activated')
-  } else {
-    latest = false
+  } else if (latest === vscodeID && identifier !== vscodeID) {
+    latest = identifier
   }
 }, 1000)
